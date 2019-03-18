@@ -1,0 +1,75 @@
+CREATE (Saga1:Saga {title:'The Saga of Gísli Súrsson', icelandic_title:'Gísla saga Súrssonar'})
+
+CREATE (Gisli1:Person {name:'Gísli Súrsson'})
+CREATE (Gisli2:Person {name:'Gisli Thorkelsson'})
+CREATE (Ari1:Person {name:'Ari Thorkelsson'})
+CREATE (Thorbjorn1:Person {name:'Thorbjorn Thorkelsson Sur'})
+CREATE (Thorkel1:Person {name:'Thorkel Súrsson'})
+CREATE (Thordis1:Person {name:'Thordis'})
+CREATE (Bard1:Person {name:'Bard'})
+CREATE (Skeggi1:Person {name:'Skeggi the Dueller',icelandic_name:'Hólmgang-Skeggi'})
+CREATE (Kolbjorn1:Person {name:'Kolbjorn'})
+CREATE (Aud1:Person {name:'Aud'})
+CREATE (Asgerd1:Person {name:'Asgerd'})
+CREATE (Thorgrim1:Person {name:'Thorgrim Thorsteinsson the Godi'})
+CREATE (Vestein1:Person {name:'Vestein Vesteinsson'})
+CREATE (Gudrid1:Person {name:'Gudrid'})
+CREATE (Geirmund1:Person {name:'Geirmund'})
+CREATE (Bork1:Person {name:'Bork'})
+CREATE (Eyjolf1:Person {name:'Eyjolf'})
+
+
+
+CREATE (Gisli1)<-[:UNCLE_OF {roles:['uncle of']}]-(Gisli2)
+CREATE (Gisli1)-[:NEPHEW_OF {roles:['nephew of']}]->(Gisli2)
+CREATE (Gisli1)<-[:PARENT_OF {roles:['father of']}]-(Thorbjorn1)
+CREATE (Gisli1)-[:CHILD_OF {roles:['son of']}]->(Thorbjorn1)
+CREATE (Gisli1)<-[:SIBLING_OF {roles:['brother of']}]-(Thorkel1)
+CREATE (Gisli1)-[:SIBLING_OF {roles:['brother of']}]->(Thorkel1)
+CREATE (Gisli1)<-[:SIBLING_OF {roles:['sister of']}]-(Thordis1)
+CREATE (Gisli1)-[:SIBLING_OF {roles:['brother of']}]->(Thordis1)
+CREATE (Gisli1)<-[:MARRIED_TO {roles:['wife of']}]-(Aud1)
+CREATE (Gisli1)-[:MARRIED_TO {roles:['husband of']}]->(Aud1)
+CREATE (Gisli1)-[:FOSTER_PARENT_OF {roles:['foster father of']}]->(Gudrid1)
+CREATE (Gisli1)<-[:FOSTER_CHILD_OF {roles:['foster daughter of']}]-(Gudrid1)
+
+CREATE (Ari1)<-[:SIBLING_OF {roles:['brother of']}]-(Gisli2)
+CREATE (Ari1)-[:SIBLING_OF {roles:['brother of']}]->(Gisli2)
+
+CREATE (Thorkel1)<-[:MARRIED_TO {roles:['wife of']}]-(Asgerd1)
+CREATE (Thorkel1)-[:MARRIED_TO {roles:['husband of']}]->(Asgerd1)
+CREATE (Thorkel1)<-[:PARENT_OF {roles:['father of']}]-(Thorbjorn1)
+CREATE (Thorkel1)-[:CHILD_OF {roles:['son of']}]->(Thorbjorn1)
+
+CREATE (Thordis1)<-[:PARENT_OF {roles:['father of']}]-(Thorbjorn1)
+CREATE (Thordis1)-[:CHILD_OF {roles:['son of']}]->(Thorbjorn1)
+CREATE (Thordis1)<-[:MARRIED_TO {roles:['husband of']}]-(Thorgrim1)
+CREATE (Thordis1)-[:MARRIED_TO {roles:['wife of']}]->(Thorgrim1)
+CREATE (Thordis1)<-[:MARRIED_TO {roles:['husband of']}]-(Bork1)
+CREATE (Thordis1)-[:MARRIED_TO {roles:['wife of']}]->(Bork1)
+
+CREATE (Bork1)<-[:SIBLING_OF {roles:['brother of']}]-(Thorgrim1)
+CREATE (Bork1)-[:SIBLING_OF {roles:['brother of']}]->(Thorgrim1)
+
+CREATE (Vestein1)-[:SIBLING_OF {roles:['brother of']}]->(Aud1)
+CREATE (Vestein1)<-[:SIBLING_OF {roles:['sister of']}]-(Aud1)
+
+CREATE (Geirmund1)-[:SIBLING_OF {roles:['brother of']}]->(Gudrid1)
+CREATE (Geirmund1)<-[:SIBLING_OF {roles:['sister of']}]-(Gudrid1)
+
+CREATE (Gisli2)<-[:SIBLING_OF {roles:['brother of']}]-(Thorbjorn1)
+CREATE (Gisli2)-[:SIBLING_OF {roles:['brother of']}]->(Thorbjorn1)
+
+
+CREATE (Thorgrim1)-[:MURDERED]->(Vestein1)
+CREATE (Gisli1)-[:MURDERED]->(Thorgrim1)
+
+CREATE (Gisli1)-[:APPEARED_IN]->(Saga1), (Gisli2)-[:APPEARED_IN]->(Saga1),
+	(Ari1)-[:APPEARED_IN]->(Saga1),(Thorbjorn1)-[:APPEARED_IN]->(Saga1),
+	(Thorkel1)-[:APPEARED_IN]->(Saga1), (Bard1)-[:APPEARED_IN]->(Saga1),
+	(Thordis1)-[:APPEARED_IN]->(Saga1),(Aud1)-[:APPEARED_IN]->(Saga1),
+	(Asgerd1)-[:APPEARED_IN]->(Saga1),(Thorgrim1)-[:APPEARED_IN]->(Saga1),
+	(Vestein1)-[:APPEARED_IN]->(Saga1),(Gudrid1)-[:APPEARED_IN]->(Saga1),
+	(Skeggi1)-[:APPEARED_IN]->(Saga1),(Kolbjorn1)-[:APPEARED_IN]->(Saga1),
+	(Geirmund1)-[:APPEARED_IN]->(Saga1),(Bork1)-[:APPEARED_IN]->(Saga1),
+	(Eyjolf1)-[:APPEARED_IN]->(Saga1)
