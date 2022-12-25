@@ -31,7 +31,7 @@ a0a16443.databases.neo4j.io:7687
 
 ### SQL Database
 
-Proposed SQL tables for relationship mapping.
+Proposed SQL tables for basic relationship mapping and an approval process.
 
 _Sagas_
 
@@ -45,13 +45,16 @@ _Names_
 2. CharacterID
 3. SagaID
 4. Value
-
+5. ApprovedBy
+6. ApprovedAt
 
 _Characters_
 
 1. ID
 2. CommonName
 3. `Additional Fields...`
+4. ApprovedBy
+5. ApprovedAt
 
 _Relationships_
 
@@ -59,6 +62,31 @@ _Relationships_
 2. SagaID
 3. CharacterID
 4. CharacterID
+5. ApprovedBy
+6. ApprovedAt
 
 
+#### Cloudflare D1 Database
 
+Database ID: `6d8a8159-08d6-47dd-9ded-e7fec9f5ba30`
+
+
+## Discord as an IdP
+
+Proposal to use Discord as the identity provider and Cloudflare as a service provider for user identity management. 
+
+This would allow a user to click "Login with Discord" on the app to login to the page. 
+
+This would main be for editors and administrators of the app. 
+
+Proposed setup
+
+1. Make app in Discord 
+   1. 
+2. Add OpenID Connect Access to 
+
+### IdP Links
+
+- 
+- https://idp.miniorange.com/login-using-discord-as-oauth-server/
+- https://developer.okta.com/docs/guides/social-login/discord/main/#test-the-integration
