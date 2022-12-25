@@ -82,8 +82,11 @@ This would main be for editors and administrators of the app.
 Proposed setup
 
 1. Make app in Discord 
-   1. 
-2. Add OpenID Connect Access to 
+   1. Get client id, token and urls (see miniorange)
+   2. https://discord.com/developers/docs/topics/oauth2
+2. Add new OpenID Connect access to Cloudflare
+   1. Settings → Add New → OpenID Connect → (form)
+3. Back in the Discord dashboard, navigate to the OAuth2 section & Add Redirect button for adding the callback URL and click on the Save button.
 
 ### IdP Links
 
