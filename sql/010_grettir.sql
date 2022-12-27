@@ -4,8 +4,22 @@ INSERT INTO characters (name) VALUES ("Ufieg");
 INSERT INTO sagas_characters (saga_id, character_id) VALUES (15, last_insert_rowid());
 INSERT INTO characters (name) VALUES ("A Woman of the uplands");
 INSERT INTO sagas_characters (saga_id, character_id) VALUES (15, last_insert_rowid());
+
+INSERT INTO events (saga_id, type) 
+VALUES (15, "MARRIAGE");
+
+INSERT INTO relationships (saga_id, type, event_id, character_a, character_b) 
+VALUES (15, "SPOUSE", last_insert_rowid(), 1, 2);
+
 INSERT INTO characters (name) VALUES ("Asa");
 INSERT INTO sagas_characters (saga_id, character_id) VALUES (15, last_insert_rowid());
+
+-- INSERT INTO events (saga_id, type) 
+-- VALUES (15, "MARRIAGE");
+
+-- INSERT INTO relationships (saga_id, type, event_id, character_a, character_b) 
+-- VALUES (15, "SPOUSE", last_insert_rowid(), 1, 2);
+
 INSERT INTO characters (name) VALUES ("Onund Treefoot");
 INSERT INTO sagas_characters (saga_id, character_id) VALUES (15, last_insert_rowid());
 INSERT INTO characters (name) VALUES ("Thordis");
