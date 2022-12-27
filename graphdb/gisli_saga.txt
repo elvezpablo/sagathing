@@ -73,3 +73,6 @@ CREATE (Gisli1)-[:APPEARED_IN]->(Saga1), (Gisli2)-[:APPEARED_IN]->(Saga1),
 	(Skeggi1)-[:APPEARED_IN]->(Saga1),(Kolbjorn1)-[:APPEARED_IN]->(Saga1),
 	(Geirmund1)-[:APPEARED_IN]->(Saga1),(Bork1)-[:APPEARED_IN]->(Saga1),
 	(Eyjolf1)-[:APPEARED_IN]->(Saga1)
+
+
+	 

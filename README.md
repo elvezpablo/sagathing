@@ -70,7 +70,6 @@ _Relationships_
 
 Database ID: `6d8a8159-08d6-47dd-9ded-e7fec9f5ba30`
 
-
 ## Discord as an IdP
 
 Proposal to use Discord as the identity provider and Cloudflare as a service provider for user identity management. 
