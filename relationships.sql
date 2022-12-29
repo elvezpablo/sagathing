@@ -1,4 +1,4 @@
-SELECT s.name, r.type, c1.name, c2.name
+SELECT s.name, r.type, c1.name, c2.name, c1.generation
 FROM relationships AS r 
 INNER JOIN sagas AS s 
 ON s.id=r.saga_id

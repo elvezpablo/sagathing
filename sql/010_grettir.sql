@@ -1,31 +1,49 @@
 
-
-INSERT INTO characters (name) VALUES ("Ufieg");
+-- id 1
+INSERT INTO characters (name, generation) VALUES ("Ufieg", "FIRST");
 INSERT INTO sagas_characters (saga_id, character_id) VALUES (15, last_insert_rowid());
-INSERT INTO characters (name) VALUES ("A Woman of the uplands");
-INSERT INTO sagas_characters (saga_id, character_id) VALUES (15, last_insert_rowid());
-
-INSERT INTO events (saga_id, type) 
-VALUES (15, "MARRIAGE");
-
-INSERT INTO relationships (saga_id, type, event_id, character_a, character_b) 
-VALUES (15, "SPOUSE", last_insert_rowid(), 1, 2);
-
-INSERT INTO characters (name) VALUES ("Asa");
+-- id 2
+INSERT INTO characters (name, generation) VALUES ("A Woman of the uplands", "FIRST");
 INSERT INTO sagas_characters (saga_id, character_id) VALUES (15, last_insert_rowid());
 
--- INSERT INTO events (saga_id, type) 
--- VALUES (15, "MARRIAGE");
+INSERT INTO relationships (saga_id, type, character_a, character_b) 
+VALUES (15, "SPOUSE", 1, 2);
 
--- INSERT INTO relationships (saga_id, type, event_id, character_a, character_b) 
--- VALUES (15, "SPOUSE", last_insert_rowid(), 1, 2);
+INSERT INTO events (saga_id, subject_id, type) 
+VALUES (15, last_insert_rowid(), "MARRIAGE");
 
-INSERT INTO characters (name) VALUES ("Onund Treefoot");
+-- id 3
+INSERT INTO characters (name, generation) VALUES ("Asa", "SECOND");
 INSERT INTO sagas_characters (saga_id, character_id) VALUES (15, last_insert_rowid());
-INSERT INTO characters (name) VALUES ("Thordis");
+-- id 4
+INSERT INTO characters (name, generation) VALUES ("Onund Treefoot", "SECOND");
 INSERT INTO sagas_characters (saga_id, character_id) VALUES (15, last_insert_rowid());
+
+INSERT INTO relationships (saga_id, type, character_a, character_b, ordinal) 
+VALUES (15, "SPOUSE", 3, 4, 1);
+
+INSERT INTO events (saga_id, subject_id, type) 
+VALUES (15, last_insert_rowid(), "MARRIAGE");
+
+-- id 5
+INSERT INTO characters (name, generation) VALUES ("Thordis", "SECOND"); 
+INSERT INTO sagas_characters (saga_id, character_id) VALUES (15, last_insert_rowid());
+
+INSERT INTO relationships (saga_id, type, character_a, character_b, ordinal) 
+VALUES (15, "SPOUSE", 4, 5, 1);
+
+INSERT INTO events (saga_id, subject_id, type) 
+VALUES (15, last_insert_rowid(), "MARRIAGE");
+-- id 6
 INSERT INTO characters (name) VALUES ("Audun Skokull");
 INSERT INTO sagas_characters (saga_id, character_id) VALUES (15, last_insert_rowid());
+
+INSERT INTO relationships (saga_id, type, character_a, character_b, ordinal) 
+VALUES (15, "SPOUSE", 5, 6, 1);
+
+INSERT INTO events (saga_id, subject_id, type) 
+VALUES (15, last_insert_rowid(), "MARRIAGE");
+
 INSERT INTO characters (name) VALUES ("Gudbiorg");
 INSERT INTO sagas_characters (saga_id, character_id) VALUES (15, last_insert_rowid());
 INSERT INTO characters (name) VALUES ("Thorgeir");

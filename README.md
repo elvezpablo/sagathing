@@ -11,6 +11,12 @@ https://docs.google.com/document/d/1AIhROkJpB0eXNsnKn5S0YVadUur6PuoD2k2OSbXFA3U/
 1. [Aud](https://www.familyecho.com/?p=START&c=10pi2u1pfw1&f=704631213868810681)
 2. [Thrym-Ketil](https://familyecho.com/?p=START&c=14ojogfpxfl&f=794147246474149859)
 
+## Chart UIs
+
+### Chart Display Links 
+
+- https://www.lucidchart.com/blog/make-a-kinship-diagram-online
+- https://www.thisiscolossal.com/2020/07/penguin-flowcharts-kyoto-sumida-aquariums/
 
 ## Graph Databases
 
@@ -31,39 +37,7 @@ a0a16443.databases.neo4j.io:7687
 
 ### SQL Database
 
-Proposed SQL tables for basic relationship mapping and an approval process.
-
-_Sagas_
-
-1. ID
-2. Name
-3. <Additional Fields>
-
-_Names_
-
-1. ID
-2. CharacterID
-3. SagaID
-4. Value
-5. ApprovedBy
-6. ApprovedAt
-
-_Characters_
-
-1. ID
-2. CommonName
-3. `Additional Fields...`
-4. ApprovedBy
-5. ApprovedAt
-
-_Relationships_
-
-1. ID
-2. SagaID
-3. CharacterID
-4. CharacterID
-5. ApprovedBy
-6. ApprovedAt
+See  SQL tables for basic relationship mapping and an approval process.
 
 
 #### Cloudflare D1 Database
@@ -88,7 +62,6 @@ Proposed setup
 3. Back in the Discord dashboard, navigate to the OAuth2 section & Add Redirect button for adding the callback URL and click on the Save button.
 
 ### IdP Links
-
 - 
 - https://idp.miniorange.com/login-using-discord-as-oauth-server/
 - https://developer.okta.com/docs/guides/social-login/discord/main/#test-the-integration

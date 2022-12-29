@@ -1,4 +1,7 @@
 
+/*
+Core saga table with slug for urls
+*/
 DROP TABLE IF EXISTS sagas;
 CREATE TABLE sagas (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -47,6 +50,9 @@ INSERT INTO sagas (name, slug) VALUES ("Killer-Glum's Saga", "killer-glum");
 INSERT INTO sagas (name, slug) VALUES ("Viglund's Saga", "viglund");
 INSERT INTO sagas (name, slug) VALUES ("The Saga of the People of Vopnafjord", "people-of-vopnafjord");
 
+/*
+Join table to associate sagas with characters
+*/
 DROP TABLE IF EXISTS sagas_characters;
 CREATE TABLE IF NOT EXISTS sagas_characters (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -54,13 +60,32 @@ CREATE TABLE IF NOT EXISTS sagas_characters (
 	character_id INTEGER NOT NULL
 );
 
+/*
+Table of character information
+- name is the common english name, names table will be used for other types of names
+- generation is a tag that can be used to place
+*/
 DROP TABLE IF EXISTS characters;
 CREATE TABLE IF NOT EXISTS characters (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,	
 	name TEXT NOT NULL,
-	events TEXT 
+	generation TEXT
 );
 
+DROP TABLE IF EXISTS generation_types;
+CREATE TABLE IF NOT EXISTS generation_types (
+	type TEXT PRIMARY KEY
+);
+
+INSERT INTO generation_types (type)
+VALUES
+	("FIRST"),
+	("SECOND"),
+	("THIRD");
+
+/*
+ join table for all the names and nicknames per saga
+*/
 DROP TABLE IF EXISTS names;
 CREATE TABLE IF NOT EXISTS names (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -68,13 +93,23 @@ CREATE TABLE IF NOT EXISTS names (
 	character_id INTEGER NOT NULL,
 	saga_id INTEGER NOT NULL
 );
-
+/*
+ relationship of 2 characters per saga this will usually 
+ be for a husband-wife and parent-child but could also be owner-pet
+ - ordinal the order of a relationship e.g. 1st husband, 1st child
+ - type of relationship e.g. CHILD, OWNER, PARENT
+ - character_a  must be the subject of the type 
+ if CHILD type then this should be the id of the child
+ if PARENT type then this should be the id of the parent
+ if SPOUSE type then order does not matter
+ - character_b
+*/
 DROP TABLE IF EXISTS relationships;
 CREATE TABLE IF NOT EXISTS relationships (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	saga_id INTEGER NOT NULL,
 	type TEXT NOT NULL,
-	event_id TEXT NOT NULL,	
+	ordinal INTEGER DEFAULT 0 NOT NULL,
 	character_a INTEGER NOT NULL,
 	character_b INTEGER NOT NULL
 );
@@ -92,17 +127,21 @@ VALUES
 	("FOSTER_SIBLIING"),
 	("OWNER"),
 	("PARENT"),
-	("PET"),
-	("SIBLING"),
+	("PET"),	
 	("SPOUSE");
 
+/*
+- subject_id can be a relationshp or character
+- type string the type of relationship e.g. "MARRIAGE"
+- ordinal the order in the saga 
+*/
 DROP TABLE IF EXISTS events;
 CREATE TABLE IF NOT EXISTS events (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	saga_id INTEGER NOT NULL,
+	subject_id INTEGER NOT NULL, 
 	type TEXT NOT NULL,
-	ordinal INTEGER DEFAULT 0 NOT NULL,
-	date TEXT
+	ordinal INTEGER
 ); 
 
 DROP TABLE IF EXISTS event_types;
