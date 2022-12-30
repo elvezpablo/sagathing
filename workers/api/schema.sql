@@ -142,8 +142,8 @@ CREATE TABLE IF NOT EXISTS events (
 	saga_id INTEGER NOT NULL,
 	subject_id INTEGER NOT NULL, 
 	type TEXT NOT NULL,
-	ordinal INTEGER,
-	data TEXT
+	ordinal INTEGER DEFAULT 1,
+	date TEXT
 ); 
 
 DROP TABLE IF EXISTS event_types;

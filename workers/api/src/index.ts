@@ -23,14 +23,25 @@ export default {
 
 	  if(pathname == "/v1/relationships") {
 		const s = `
-			SELECT r.id, r.type, c1.name AS character_a, c2.name AS character_b
+			SELECT 
+				r.id, 
+				r.type, 
+				e.ordinal,
+				e.type AS event_type,
+				e.date,
+				c1.name AS character_a,
+				c1.id AS character_a_id,
+				c2.name AS character_b,
+				c2.id AS character_b_id
 			FROM relationships AS r 
 			INNER JOIN sagas AS s 
 			ON s.id=r.saga_id
 			INNER JOIN characters AS c1
 			ON c1.id=r.character_a
 			INNER JOIN characters AS c2
-			ON c2.id=r.character_b			
+			ON c2.id=r.character_b
+			INNER JOIN events AS e
+			ON r.id = e.subject_id
 			WHERE r.saga_id = ?
 		`;
 
@@ -43,6 +54,19 @@ export default {
 			SELECT c.id, c.name, c.tags 
 			FROM characters AS  c
 			INNER JOIN sagas_characters AS sc
+			ON c.id = sc.character_id			
+			WHERE sc.saga_id = ?
+		`;		
+
+		const { results } = await env.DB.prepare(s).bind(15).all();		
+		return Response.json(results);
+	  }
+
+	  if(pathname == "/v1/events") {
+		const s = `
+			SELECT c.id, c.name, c.tags 
+			FROM characters AS  c
+			INNER JOIN sagas_characters AS sc
 			ON c.id = sc.character_id
 			WHERE sc.saga_id = ?
 		`;
@@ -50,7 +74,6 @@ export default {
 		const { results } = await env.DB.prepare(s).bind(15).all();		
 		return Response.json(results);
 	  }
-
 
 	  if(pathname == "/v1/tags") {
 		const s = `SELECT * from tags`;
