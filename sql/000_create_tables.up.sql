@@ -69,12 +69,12 @@ DROP TABLE IF EXISTS characters;
 CREATE TABLE IF NOT EXISTS characters (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,	
 	name TEXT NOT NULL,
-	generation TEXT
+	tags TEXT
 );
 
-DROP TABLE IF EXISTS generation_types;
-CREATE TABLE IF NOT EXISTS generation_types (
-	type TEXT PRIMARY KEY
+DROP TABLE IF EXISTS tags;
+CREATE TABLE IF NOT EXISTS tags (
+	tag TEXT PRIMARY KEY
 );
 
 INSERT INTO generation_types (type)
