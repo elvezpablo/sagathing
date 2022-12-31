@@ -9,7 +9,7 @@ CREATE TABLE sagas (
 	slug TEXT NOT NUll
 );
 INSERT INTO sagas (name, slug) VALUES ('Bandamanna saga', 'bandamanna');
-INSERT INTO sagas (name, slug) VALUES ('The Saga of Bard Snæfells-God', 'bard-snaefells-god');
+INSERT INTO sagas (name, slug) VALUES ('The Saga of Bard Snæfells-Godi', 'bard-snaefells-godi');
 INSERT INTO sagas (name, slug) VALUES ('The Saga of Bjorn, Champion of the Hitardal People','bjorn-champion-of-the-hitardal-people');
 INSERT INTO sagas (name, slug) VALUES ('Njal''s Saga', 'njal');
 INSERT INTO sagas (name, slug) VALUES ('The Saga of Droplaug''s Sons', 'droplaugs-sons');
