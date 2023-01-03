@@ -1,4 +1,5 @@
 import { LinearGradient } from "@visx/gradient";
+import { Group } from "@visx/group";
 import Grid from "./Grid";
 import Person from "./Person";
 import Spouses from "./Spouses";
@@ -30,24 +31,42 @@ export default function Tree() {
       <path
         d={`
           M ${totalWidth / 2} ${generationHeight / 2}
-          V ${generationHeight}
-          H ${defaultMargin.left + Person.defaultProps.width}
-          H ${totalWidth - defaultMargin.right}
-	    `}
+          V ${generationHeight}          
+	      `}
         stroke={"#26deb0"}
         strokeWidth={1}
         fill={"transparent"}
       />
-      <Spouses
-        spouses={[ "Onund Treefoot", "Thordis"]}
-        top={generationHeight + generationHeight / 2 - 30 / 2}
-        left={defaultMargin.left}
-      />
-      <Person
-        name="Gudbiorg"
-        top={generationHeight + generationHeight / 2 - 30 / 2}
-        left={500}
-      />
+      <Group>
+        <Spouses
+          spouses={["Onund Treefoot", "Thordis"]}
+          top={generationHeight + generationHeight / 2 - 30 / 2}
+          left={defaultMargin.left}
+        />
+        <path
+          d={`
+          M ${defaultMargin.left + 100 / 2} ${generationHeight}
+          V ${generationHeight + 35}          
+	      `}
+          stroke={"#26deb0"}
+          strokeWidth={1}
+          fill={"transparent"}
+        />
+        <Person
+          name="Gudbiorg"
+          top={generationHeight + generationHeight / 2 - 30 / 2}
+          left={500}
+        />
+        <path
+          d={`
+          M ${500 + 100 / 2} ${generationHeight}
+          V ${generationHeight + 35}          
+	      `}
+          stroke={"#26deb0"}
+          strokeWidth={1}
+          fill={"transparent"}
+        />
+      </Group>
     </svg>
   );
 }
