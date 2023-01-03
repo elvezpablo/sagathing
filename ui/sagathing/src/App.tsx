@@ -1,19 +1,25 @@
 import { Title, Text, Box, Container } from "@mantine/core";
-import Relationship from "./components/Relationship";
+import { Center } from "@mantine/core";
+
+import Tree from "./components/Tree";
 
 function App() {
   return (
-    <div>
+    <>
       <Container>
-        <Title order={2}>The Saga of the People of Eyri</Title>
+        <Title order={2}>The Saga of Grettir the Strong</Title>
       </Container>
       <Container>
         <Text sx={{ fontFamily: "Signika", fontWeight: 700 }} size="lg">
-          Relationship
+          Pedigree of the family of Asmund of Biarg
         </Text>
-        <Relationship />
+        <Center>
+          
+        <Tree />
+          
+        </Center>
       </Container>
-    </div>
+    </>
   );
 }
 

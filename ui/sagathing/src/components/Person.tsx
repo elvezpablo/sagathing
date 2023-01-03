@@ -3,27 +3,35 @@ type Props = {
   name: string;
   top: number;
   left: number;
+  width: number;
+  height: number;
 };
 
-export default function Person({ name, top, left }: Props) {
-  const width = 100;
-  const height = 30;
+export default function Person({
+  name,
+  top,
+  left,
+  width = 100,
+  height = 30,
+}: Props) {
+  
   return (
     <Group top={top} left={left}>
       <rect
         height={height}
         width={width}
-        y={-height / 2}
-        x={-width / 2}
         fill="rgba(33,33,33,.3)"
         stroke={"#26deb0"}
         strokeWidth={1}
-        strokeOpacity={0.6}
+        strokeOpacity={1}
         rx={1}
       />
 
       <text
-        dy=".33em"
+        x={width/2}
+        y={height/2}
+        width={width}
+        alignmentBaseline="middle"
         fontSize=".8rem"
         textAnchor="middle"
         style={{ pointerEvents: "none" }}
@@ -34,3 +42,8 @@ export default function Person({ name, top, left }: Props) {
     </Group>
   );
 }
+
+Person.defaultProps = {
+  width: 100,
+  height: 30,
+};

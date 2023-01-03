@@ -1,0 +1,15 @@
+[
+	{
+		"id": 0,
+		"name": "Ufeig Clubfoot",
+		"gender": "male",
+		"spouses": [1]
+	},
+	{
+		"id": 1,
+		"name": "Upland Woman",
+		"spouses": [0],
+		"children": ["Onund Treefoot", "Gudbiorg"]
+	}
+]
+
